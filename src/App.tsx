@@ -9,7 +9,10 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Box as="header" bg="white" borderBottomWidth="1px">
         <Flex maxW="1100px" mx="auto" py={3} px={4} align="center">
-          <Heading size="md">HR.GOV CIM</Heading>
+          <Box>
+            <Heading size="md">HR.GOV CIM</Heading>
+            <Text fontSize="xs" color="gray.500">This is a web page — not a native app.</Text>
+          </Box>
           <Spacer />
           <HStack spacing={3}>
             <Button as={RouterLink} to="/" variant="ghost">Home</Button>
