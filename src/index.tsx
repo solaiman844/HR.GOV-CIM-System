@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { ChakraProvider } from '@chakra-ui/react';
 import App from './App';
+console.log('src/index.tsx module executed');
 import Landing from './pages/Landing/Landing';
 import './styles/global.css';
 import '@fontsource/inter/index.css';
