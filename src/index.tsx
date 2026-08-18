@@ -11,9 +11,24 @@ if (container) {
 	container.innerHTML = '<div style="padding:24px;font-family:Inter,Arial,Helvetica,sans-serif">Mounting app...</div>';
 }
 const root = createRoot(container!);
-root.render(
-	<ChakraProvider theme={theme}>
-		<App />
-	</ChakraProvider>
-);
-console.log('App mounted');
+try {
+	root.render(
+		<ChakraProvider theme={theme}>
+			<App />
+		</ChakraProvider>
+	);
+	console.log('App mounted');
+} catch (err) {
+	console.error('Render error:', err);
+	if (container) {
+		const errBox = document.createElement('pre');
+		errBox.style.color = 'crimson';
+		errBox.style.padding = '16px';
+		errBox.textContent = 'Render error: ' + (err instanceof Error ? err.message : String(err));
+		container.appendChild(errBox);
+	}
+}
+
+window.addEventListener('error', (e) => {
+	console.error('Uncaught error:', e.error || e.message || e);
+});
