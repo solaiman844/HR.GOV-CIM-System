@@ -7,6 +7,7 @@ const Landing: React.FC = () => {
     <Container maxW="container.lg" py={10}>
       <Box textAlign="center" py={8}>
         <Heading as="h1" size="xl" mb={4}>Client Information Management</Heading>
+        <Text fontSize="sm" color="gray.500" mb={4}>This is a web page — not a native app.</Text>
         <Text color="gray.600" mb={6}>Manage citizen and employee client records securely for your LGU.</Text>
         <Stack direction="row" spacing={4} justify="center">
           <Button as={RouterLink} to="/clients" colorScheme="blue">Get Started</Button>
