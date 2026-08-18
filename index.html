@@ -6,58 +6,7 @@
     <title>HR.Gov App</title>
   </head>
   <body>
-    <div style="position:fixed;left:12px;top:12px;z-index:9999;background:#f7fafc;border:1px solid #e2e8f0;padding:8px 12px;border-radius:6px;color:#1a202c;font-family:Inter,Arial,Helvetica,sans-serif">This is a web page — not a native app.</div>
-    <script>console.log('index.html inline script executed')</script>
-    <div id="root">
-      <div style="max-width:1000px;margin:36px auto;padding:24px;font-family:Inter,Arial,Helvetica,sans-serif;">
-        <h1 style="font-size:28px;margin:0 0 8px;color:#1a202c">Client Information Management</h1>
-        <p style="margin:0 0 16px;color:#4a5568">This is a web page — not a native app.</p>
-        <p style="margin:0 0 20px;color:#718096">Manage citizen and employee client records securely for your LGU.</p>
-        <div style="display:flex;gap:12px">
-          <a href="/clients" style="display:inline-block;padding:10px 16px;background:#2b6cb0;color:#fff;border-radius:6px;text-decoration:none">Get Started</a>
-          <a href="#features" style="display:inline-block;padding:10px 16px;border:1px solid #cbd5e0;border-radius:6px;text-decoration:none;color:#2d3748">Features</a>
-        </div>
-      </div>
-    </div>
+    <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
-    <script>
-      (async () => {
-        try {
-          await import('/src/index.tsx');
-          console.log('dynamic import of /src/index.tsx succeeded');
-        } catch (err) {
-          console.error('dynamic import of /src/index.tsx failed', err);
-        }
-      })();
-    </script>
-    <script>
-      // Non-module fetch test to check network availability for the module file
-      (function(){
-        fetch('/src/index.tsx').then(function(res){
-          if(!res.ok) throw new Error('status:'+res.status);
-          return res.text();
-        }).then(function(txt){
-          console.log('fetch /src/index.tsx OK, length=' + txt.length);
-          var pre = document.createElement('pre');
-          pre.style.position = 'fixed';
-          pre.style.left = '12px';
-          pre.style.bottom = '12px';
-          pre.style.zIndex = '9999';
-          pre.style.maxHeight = '40vh';
-          pre.style.overflow = 'auto';
-          pre.style.background = '#fff';
-          pre.style.border = '1px solid #eee';
-          pre.style.padding = '8px';
-          pre.textContent = txt.slice(0,1000);
-          document.body.appendChild(pre);
-        }).catch(function(err){
-          console.error('fetch /src/index.tsx failed', err);
-          var d = document.createElement('div');
-          d.style.position='fixed'; d.style.left='12px'; d.style.bottom='12px'; d.style.zIndex='9999'; d.style.background='#fff'; d.style.border='1px solid #f00'; d.style.padding='8px';
-          d.textContent = 'fetch /src/index.tsx failed: ' + (err && err.message ? err.message : String(err));
-          document.body.appendChild(d);
-        });
-      })();
-    </script>
   </body>
 </html>
