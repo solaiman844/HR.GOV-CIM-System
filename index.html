@@ -10,5 +10,15 @@
     <script>console.log('index.html inline script executed')</script>
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
+    <script>
+      (async () => {
+        try {
+          await import('/src/index.tsx');
+          console.log('dynamic import of /src/index.tsx succeeded');
+        } catch (err) {
+          console.error('dynamic import of /src/index.tsx failed', err);
+        }
+      })();
+    </script>
   </body>
 </html>
