@@ -8,7 +8,17 @@
   <body>
     <div style="position:fixed;left:12px;top:12px;z-index:9999;background:#f7fafc;border:1px solid #e2e8f0;padding:8px 12px;border-radius:6px;color:#1a202c;font-family:Inter,Arial,Helvetica,sans-serif">This is a web page — not a native app.</div>
     <script>console.log('index.html inline script executed')</script>
-    <div id="root"></div>
+    <div id="root">
+      <div style="max-width:1000px;margin:36px auto;padding:24px;font-family:Inter,Arial,Helvetica,sans-serif;">
+        <h1 style="font-size:28px;margin:0 0 8px;color:#1a202c">Client Information Management</h1>
+        <p style="margin:0 0 16px;color:#4a5568">This is a web page — not a native app.</p>
+        <p style="margin:0 0 20px;color:#718096">Manage citizen and employee client records securely for your LGU.</p>
+        <div style="display:flex;gap:12px">
+          <a href="/clients" style="display:inline-block;padding:10px 16px;background:#2b6cb0;color:#fff;border-radius:6px;text-decoration:none">Get Started</a>
+          <a href="#features" style="display:inline-block;padding:10px 16px;border:1px solid #cbd5e0;border-radius:6px;text-decoration:none;color:#2d3748">Features</a>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/index.tsx"></script>
     <script>
       (async () => {
