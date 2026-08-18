@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Client } from '../services/clientService';
+import { Table, Thead, Tbody, Tr, Th, Td, Button, Input, HStack } from '@chakra-ui/react';
 
 type Props = {
   clients: Client[];
@@ -27,51 +28,51 @@ const ClientTable: React.FC<Props> = ({ clients, onDelete, onUpdate }) => {
   };
 
   return (
-    <table className="client-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Department</th>
-          <th>Position</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table variant="simple">
+      <Thead>
+        <Tr>
+          <Th>Name</Th>
+          <Th>Email</Th>
+          <Th>Phone</Th>
+          <Th>Department</Th>
+          <Th>Position</Th>
+          <Th>Actions</Th>
+        </Tr>
+      </Thead>
+      <Tbody>
         {clients.map((c) => (
-          <tr key={c.id}>
-            <td>
+          <Tr key={c.id}>
+            <Td>
               {editingId === c.id ? (
-                <>
-                  <input name="firstName" value={editForm.firstName as string} onChange={change} />
-                  <input name="lastName" value={editForm.lastName as string} onChange={change} />
-                </>
+                <HStack>
+                  <Input name="firstName" value={editForm.firstName as string} onChange={change} />
+                  <Input name="lastName" value={editForm.lastName as string} onChange={change} />
+                </HStack>
               ) : (
                 `${c.firstName} ${c.lastName}`
               )}
-            </td>
-            <td>{editingId === c.id ? <input name="email" value={editForm.email as string} onChange={change} /> : c.email}</td>
-            <td>{editingId === c.id ? <input name="phone" value={editForm.phone as string} onChange={change} /> : c.phone}</td>
-            <td>{editingId === c.id ? <input name="department" value={editForm.department as string} onChange={change} /> : c.department}</td>
-            <td>{editingId === c.id ? <input name="position" value={editForm.position as string} onChange={change} /> : c.position}</td>
-            <td>
+            </Td>
+            <Td>{editingId === c.id ? <Input name="email" value={editForm.email as string} onChange={change} /> : c.email}</Td>
+            <Td>{editingId === c.id ? <Input name="phone" value={editForm.phone as string} onChange={change} /> : c.phone}</Td>
+            <Td>{editingId === c.id ? <Input name="department" value={editForm.department as string} onChange={change} /> : c.department}</Td>
+            <Td>{editingId === c.id ? <Input name="position" value={editForm.position as string} onChange={change} /> : c.position}</Td>
+            <Td>
               {editingId === c.id ? (
-                <>
-                  <button onClick={() => save(c.id)}>Save</button>
-                  <button onClick={() => setEditingId(null)}>Cancel</button>
-                </>
+                <HStack>
+                  <Button size="sm" colorScheme="green" onClick={() => save(c.id)}>Save</Button>
+                  <Button size="sm" onClick={() => setEditingId(null)}>Cancel</Button>
+                </HStack>
               ) : (
-                <>
-                  <button onClick={() => startEdit(c)}>Edit</button>
-                  <button onClick={() => onDelete(c.id)}>Delete</button>
-                </>
+                <HStack>
+                  <Button size="sm" onClick={() => startEdit(c)}>Edit</Button>
+                  <Button size="sm" colorScheme="red" onClick={() => onDelete(c.id)}>Delete</Button>
+                </HStack>
               )}
-            </td>
-          </tr>
+            </Td>
+          </Tr>
         ))}
-      </tbody>
-    </table>
+      </Tbody>
+    </Table>
   );
 };
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ClientForm from '../../components/ClientForm';
 import ClientTable from '../../components/ClientTable';
 import clientService, { Client } from '../../services/clientService';
-import '../../styles/client.css';
+import { Container, Grid, Box, Heading, Spinner, Text } from '@chakra-ui/react';
 
 const ClientManagement: React.FC = () => {
   const [clients, setClients] = useState<Client[]>([]);
@@ -31,19 +31,20 @@ const ClientManagement: React.FC = () => {
   };
 
   return (
-    <div className="client-page">
-      <h2>Client Information Management</h2>
-      <div className="client-grid">
-        <section className="client-form">
-          <h3>Add Client</h3>
+    <Container maxW="container.lg" py={8}>
+      <Heading mb={6}>Client Information Management</Heading>
+      <Grid templateColumns={{ base: '1fr', md: '360px 1fr' }} gap={6}>
+        <Box bg="white" p={4} borderRadius="md" boxShadow="sm">
+          <Heading size="md" mb={4}>Add Client</Heading>
           <ClientForm onAdd={addClient} />
-        </section>
-        <section className="client-list">
-          <h3>Clients</h3>
-          {loading ? <p>Loading...</p> : <ClientTable clients={clients} onDelete={deleteClient} onUpdate={updateClient} />}
-        </section>
-      </div>
-    </div>
+        </Box>
+        <Box bg="white" p={4} borderRadius="md" boxShadow="sm">
+          <Heading size="md" mb={4}>Clients</Heading>
+          {loading ? <Spinner /> : <ClientTable clients={clients} onDelete={deleteClient} onUpdate={updateClient} />}
+          {!loading && clients.length === 0 && <Text mt={4}>No clients yet</Text>}
+        </Box>
+      </Grid>
+    </Container>
   );
 };
 

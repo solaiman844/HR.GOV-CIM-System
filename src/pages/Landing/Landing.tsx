@@ -1,54 +1,42 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import '../../styles/landing.css';
+import { Link as RouterLink } from 'react-router-dom';
+import { Container, Box, Heading, Text, Button, SimpleGrid, Stack } from '@chakra-ui/react';
 
 const Landing: React.FC = () => {
   return (
-    <div className="landing">
-      <header className="landing-header">
-        <div className="brand">HR.GOV CIM</div>
-        <nav>
-          <Link to="/clients" className="btn">Go to Clients</Link>
-        </nav>
-      </header>
+    <Container maxW="container.lg" py={10}>
+      <Box textAlign="center" py={8}>
+        <Heading as="h1" size="xl" mb={4}>Client Information Management</Heading>
+        <Text color="gray.600" mb={6}>Manage citizen and employee client records securely for your LGU.</Text>
+        <Stack direction="row" spacing={4} justify="center">
+          <Button as={RouterLink} to="/clients" colorScheme="blue">Get Started</Button>
+          <Button as="a" href="#features" variant="outline">Features</Button>
+        </Stack>
+      </Box>
 
-      <section className="hero">
-        <div className="hero-content">
-          <h1>Client Information Management</h1>
-          <p>Manage citizen and employee client records securely for your LGU.</p>
-          <div className="hero-actions">
-            <Link to="/clients" className="primary">Get Started</Link>
-            <a href="#features" className="secondary">Features</a>
-          </div>
-        </div>
-        <div className="hero-visual" aria-hidden>
-          <div className="card">CIM Dashboard Preview</div>
-        </div>
-      </section>
+      <Box id="features" py={8}>
+        <Heading size="lg" mb={6} textAlign="center">What you can do</Heading>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
+          <Box p={4} bg="white" borderRadius="md" boxShadow="sm">
+            <Heading size="md">Centralized Records</Heading>
+            <Text mt={2} color="gray.600">Store and access client records in a single secure place.</Text>
+          </Box>
+          <Box p={4} bg="white" borderRadius="md" boxShadow="sm">
+            <Heading size="md">Quick Search & Filters</Heading>
+            <Text mt={2} color="gray.600">Find clients fast with powerful search and filtering tools.</Text>
+          </Box>
+          <Box p={4} bg="white" borderRadius="md" boxShadow="sm">
+            <Heading size="md">Role-Based Access</Heading>
+            <Text mt={2} color="gray.600">Control who sees and edits sensitive data.</Text>
+          </Box>
+        </SimpleGrid>
+      </Box>
 
-      <section id="features" className="features">
-        <h2>What you can do</h2>
-        <div className="feature-grid">
-          <div className="feature">
-            <h3>Centralized Records</h3>
-            <p>Store and access client records in a single secure place.</p>
-          </div>
-          <div className="feature">
-            <h3>Quick Search & Filters</h3>
-            <p>Find clients fast with powerful search and filtering tools.</p>
-          </div>
-          <div className="feature">
-            <h3>Role-Based Access</h3>
-            <p>Control who sees and edits sensitive data.</p>
-          </div>
-        </div>
-      </section>
-
-      <footer className="landing-footer">
-        <small>© {new Date().getFullYear()} HR.GOV CIM — Local Government Unit</small>
-      </footer>
-    </div>
+      <Box as="footer" textAlign="center" py={6} color="gray.600">
+        <Text>© {new Date().getFullYear()} HR.GOV CIM — Local Government Unit</Text>
+      </Box>
+    </Container>
   );
-};
+}
 
 export default Landing;

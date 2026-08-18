@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Client } from '../services/clientService';
+import { Button, FormControl, FormLabel, Input, Stack } from '@chakra-ui/react';
 
 type Props = {
   onAdd: (c: Omit<Client, 'id'>) => void | Promise<void>;
@@ -10,7 +11,7 @@ const blank = { firstName: '', lastName: '', email: '', phone: '', department: '
 const ClientForm: React.FC<Props> = ({ onAdd }) => {
   const [form, setForm] = useState(blank);
 
-  const change = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const change = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForm((s) => ({ ...s, [name]: value }));
   };
@@ -22,34 +23,34 @@ const ClientForm: React.FC<Props> = ({ onAdd }) => {
   };
 
   return (
-    <form onSubmit={submit} className="client-form-form">
-      <div>
-        <label>First name</label>
-        <input name="firstName" value={form.firstName} onChange={change} required />
-      </div>
-      <div>
-        <label>Last name</label>
-        <input name="lastName" value={form.lastName} onChange={change} required />
-      </div>
-      <div>
-        <label>Email</label>
-        <input name="email" type="email" value={form.email} onChange={change} />
-      </div>
-      <div>
-        <label>Phone</label>
-        <input name="phone" value={form.phone} onChange={change} />
-      </div>
-      <div>
-        <label>Department</label>
-        <input name="department" value={form.department} onChange={change} />
-      </div>
-      <div>
-        <label>Position</label>
-        <input name="position" value={form.position} onChange={change} />
-      </div>
-      <div>
-        <button type="submit">Add Client</button>
-      </div>
+    <form onSubmit={submit}>
+      <Stack spacing={3}>
+        <FormControl isRequired>
+          <FormLabel>First name</FormLabel>
+          <Input name="firstName" value={form.firstName} onChange={change} />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Last name</FormLabel>
+          <Input name="lastName" value={form.lastName} onChange={change} />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Email</FormLabel>
+          <Input name="email" type="email" value={form.email} onChange={change} />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Phone</FormLabel>
+          <Input name="phone" value={form.phone} onChange={change} />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Department</FormLabel>
+          <Input name="department" value={form.department} onChange={change} />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Position</FormLabel>
+          <Input name="position" value={form.position} onChange={change} />
+        </FormControl>
+        <Button type="submit" colorScheme="blue">Add Client</Button>
+      </Stack>
     </form>
   );
 };
