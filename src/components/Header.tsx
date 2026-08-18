@@ -9,7 +9,6 @@ import {
   useDisclosure,
   Stack,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
   <Link href={href} px={2} py={1} rounded={'md'} _hover={{ textDecoration: 'none', bg: 'gray.100' }}>
@@ -40,7 +39,7 @@ const Header: React.FC = () => {
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             display={{ md: 'none' }}
             onClick={isOpen ? onClose : onOpen}
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            icon={isOpen ? <Box as="span" fontSize="lg">✕</Box> : <Box as="span" fontSize="lg">☰</Box>}
             ml={2}
           />
         </Flex>
