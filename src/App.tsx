@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link as RouterLink } from 'react-router-dom';
-import { Box, Flex, HStack, Spacer, Button, Heading } from '@chakra-ui/react';
+import { Box, Flex, HStack, Spacer, Button, Heading, Text } from '@chakra-ui/react';
 import ClientManagement from './pages/ClientManagement/ClientManagement';
 import Landing from './pages/Landing/Landing';
 
