@@ -12,7 +12,6 @@ import {
   HStack,
   List,
   ListItem,
-  Divider,
 } from '@chakra-ui/react';
 
 const FeatureCard: React.FC<{ title: string; desc: string; emoji?: string }> = ({ title, desc, emoji }) => (
@@ -59,7 +58,7 @@ const Landing: React.FC = () => {
           </Box>
         </Box>
 
-        <Divider />
+        <Box as="hr" borderColor="gray.200" borderWidth="1px" my={6} />
 
         <Box id="features">
           <Heading size="lg" mb={6} textAlign="center">
@@ -92,7 +91,7 @@ const Landing: React.FC = () => {
           </SimpleGrid>
         </Box>
 
-        <Divider />
+        <Box as="hr" borderColor="gray.200" borderWidth="1px" my={6} />
 
         <Box as="footer" textAlign="center" py={6} color="gray.600">
           <Text mb={2}>© {new Date().getFullYear()} HR.GOV CIM — Local Government Unit</Text>
