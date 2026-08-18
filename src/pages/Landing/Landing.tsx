@@ -26,6 +26,12 @@ const FeatureCard: React.FC<{ title: string; desc: string; emoji?: string }> = (
 );
 
 const Landing: React.FC = () => {
+  React.useEffect(() => {
+    // debug: confirm Landing mounted in browser
+    // remove after verification
+    // eslint-disable-next-line no-console
+    console.log('Landing rendered');
+  }, []);
   return (
     <Container maxW="container.lg" py={12}>
       <VStack spacing={8} align="stretch">
