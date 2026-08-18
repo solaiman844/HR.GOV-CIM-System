@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { ChakraProvider, createSystem } from '@chakra-ui/react';
 import { defaultThemeConfig } from '@chakra-ui/react/theme';
 import App from './App';
+import ErrorBoundary from './components/ErrorBoundary';
 import './styles/global.css';
 import '@fontsource/inter/index.css';
 
@@ -13,7 +14,9 @@ const system = createSystem(defaultThemeConfig);
 try {
 	root.render(
 		<ChakraProvider value={system}>
-			<App />
+			<ErrorBoundary>
+				<App />
+			</ErrorBoundary>
 		</ChakraProvider>
 	);
 	console.log('App mounted');
