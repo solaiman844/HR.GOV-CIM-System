@@ -10,7 +10,7 @@ if (!container) throw new Error('Root container not found');
 const root = createRoot(container!);
 try {
 	root.render(
-		<ChakraProvider theme={theme}>
+		<ChakraProvider>
 			<App />
 		</ChakraProvider>
 	);
