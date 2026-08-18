@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import config from './config';
 import ClientManagement from './pages/ClientManagement/ClientManagement';
+import Landing from './pages/Landing/Landing';
 
 const App: React.FC = () => {
   return (
@@ -14,16 +14,9 @@ const App: React.FC = () => {
       </header>
       <main style={{ padding: 16 }}>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <h1>HR.Gov App</h1>
-                <p>API: {config.apiUrl}</p>
-              </div>
-            }
-          />
+          <Route path="/" element={<Landing />} />
           <Route path="/clients" element={<ClientManagement />} />
+          <Route path="*" element={<Landing />} />
         </Routes>
       </main>
     </BrowserRouter>
