@@ -14,9 +14,7 @@ const root = createRoot(container!);
 try {
 	root.render(
 		<ChakraProvider theme={theme}>
-			<div style={{ padding: 24, fontFamily: 'Inter, Arial, Helvetica, sans-serif' }}>
-				Hello — debug renderer
-			</div>
+			<App />
 		</ChakraProvider>
 	);
 	console.log('App mounted');
