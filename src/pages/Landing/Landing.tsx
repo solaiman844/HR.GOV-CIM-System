@@ -33,28 +33,38 @@ const Landing: React.FC = () => {
   return (
     <Container maxW="container.lg" py={12}>
       <VStack spacing={8} align="stretch">
-        <Box display={{ md: 'flex' }} alignItems="center">
-          <Box flex="1">
-            <Heading as="h1" size="2xl" mb={4}>
-              Client Information Management
-            </Heading>
-            <Text fontSize="lg" color="gray.600" mb={6}>
-              Manage citizen and employee client records securely for your Local Government Unit (LGU). Build trust, improve service delivery, and keep data organized.
-            </Text>
-            <Stack direction={{ base: 'column', sm: 'row' }} spacing={4}>
-              <Button as="a" href="/clients" colorScheme="blue" size="lg">
-                Get Started
-              </Button>
-              <Button as="a" href="#features" variant="outline" size="lg">
-                Features
-              </Button>
-            </Stack>
-          </Box>
-          <Box flex="1" display={{ base: 'none', md: 'block' }} pl={8}>
-            <Box bg="gray.50" borderRadius="md" p={6} h="220px" display="flex" alignItems="center" justifyContent="center">
-              <Text color="gray.400">[Illustration / Screenshot placeholder]</Text>
+        <Box>
+          <Stack direction={{ base: 'column', md: 'row' }} spacing={8} align="center">
+            <Box flex="1">
+              <Heading as="h1" fontSize={{ base: '2xl', md: '4xl', lg: '5xl' }} mb={4}>
+                Client Information Management
+              </Heading>
+              <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" mb={6}>
+                Manage citizen and employee client records securely for your Local Government Unit (LGU). Build trust, improve service delivery, and keep data organized.
+              </Text>
+              <Stack direction={{ base: 'column', sm: 'row' }} spacing={4}>
+                <Button as="a" href="/clients" colorScheme="blue" size="lg">
+                  Get Started
+                </Button>
+                <Button as="a" href="#features" variant="outline" size="lg">
+                  Features
+                </Button>
+              </Stack>
             </Box>
-          </Box>
+            <Box flex="1" pl={{ base: 0, md: 8 }}>
+              <Box bg="white" borderRadius="md" p={4} h={{ base: '180px', md: '260px' }} display="flex" alignItems="center" justifyContent="center" boxShadow="sm">
+                <svg width="80%" height="80%" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration placeholder">
+                  <rect width="100%" height="100%" rx="12" fill="#EDF2F7" />
+                  <g transform="translate(40,40)" fill="#CBD5E0">
+                    <rect x="0" y="0" width="220" height="28" rx="6" />
+                    <rect x="0" y="50" width="420" height="140" rx="8" />
+                    <rect x="0" y="210" width="300" height="18" rx="6" />
+                    <rect x="0" y="240" width="200" height="18" rx="6" />
+                  </g>
+                </svg>
+              </Box>
+            </Box>
+          </Stack>
         </Box>
 
         <Box as="hr" borderColor="gray.200" borderWidth="1px" my={6} />
