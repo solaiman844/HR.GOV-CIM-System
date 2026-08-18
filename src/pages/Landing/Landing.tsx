@@ -29,6 +29,9 @@ const Landing: React.FC = () => {
     // remove after verification
     // eslint-disable-next-line no-console
     console.log('Landing rendered');
+    // diagnostic: print component values
+    // eslint-disable-next-line no-console
+    console.log({ Container, Box, Heading, Text, Button, SimpleGrid, Stack, VStack, HStack, List, ListItem });
   }, []);
   return (
     <Container maxW="container.lg" py={12}>
