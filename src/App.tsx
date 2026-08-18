@@ -1,11 +1,12 @@
 import React from 'react';
+import MainLayout from './layouts/MainLayout';
 import Landing from './pages/Landing/Landing';
 
 const App: React.FC = () => {
   return (
-    <main>
+    <MainLayout>
       <Landing />
-    </main>
+    </MainLayout>
   );
 };
 

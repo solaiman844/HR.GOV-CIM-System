@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {
   Container,
   Box,
@@ -43,7 +42,7 @@ const Landing: React.FC = () => {
               Manage citizen and employee client records securely for your Local Government Unit (LGU). Build trust, improve service delivery, and keep data organized.
             </Text>
             <Stack direction={{ base: 'column', sm: 'row' }} spacing={4}>
-              <Button as={RouterLink} to="/clients" colorScheme="blue" size="lg">
+              <Button as="a" href="/clients" colorScheme="blue" size="lg">
                 Get Started
               </Button>
               <Button as="a" href="#features" variant="outline" size="lg">
