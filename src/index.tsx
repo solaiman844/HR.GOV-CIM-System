@@ -4,7 +4,6 @@ import { ChakraProvider } from '@chakra-ui/react';
 import App from './App';
 import './styles/global.css';
 import '@fontsource/inter/index.css';
-import theme from './theme';
 
 const container = document.getElementById('root');
 if (!container) throw new Error('Root container not found');
