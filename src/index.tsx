@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { ChakraProvider } from '@chakra-ui/react';
 import App from './App';
+import Landing from './pages/Landing/Landing';
 import './styles/global.css';
 import '@fontsource/inter/index.css';
 import theme from './theme';
@@ -12,9 +13,10 @@ if (container) {
 }
 const root = createRoot(container!);
 try {
+	// Temporary: render Landing directly to isolate default landing rendering
 	root.render(
 		<ChakraProvider theme={theme}>
-			<App />
+			<Landing />
 		</ChakraProvider>
 	);
 	console.log('App mounted');
