@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, createSystem } from '@chakra-ui/react';
+import { defaultThemeConfig } from '@chakra-ui/react/theme';
 import App from './App';
 import './styles/global.css';
 import '@fontsource/inter/index.css';
@@ -8,9 +9,10 @@ import '@fontsource/inter/index.css';
 const container = document.getElementById('root');
 if (!container) throw new Error('Root container not found');
 const root = createRoot(container!);
+const system = createSystem(defaultThemeConfig);
 try {
 	root.render(
-		<ChakraProvider>
+		<ChakraProvider value={system}>
 			<App />
 		</ChakraProvider>
 	);
